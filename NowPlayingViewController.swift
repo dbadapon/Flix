@@ -12,6 +12,8 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     
     
     @IBOutlet weak var tableView: UITableView!
+    
+    var movies: [[String: Any]] = [] // an array of dictionaries, like the local movies below
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,10 +54,9 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
                 // you're going to be doing a lot of casting...so if you've gone into a key and you haven't cast, question yourself....
                 // here, movies is actually an array of dictionaries
                 
-                for movie in movies {
-                    let title = movie["title"] as! String // heh
-                    print(title)
-                }
+                self.movies = movies
+                self.tableView.reloadData() // MAKE SURE U KEEP UPDATING
+                
 
             }
     
@@ -71,11 +72,17 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10 // MUST change this later!!
+        return movies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
+        let movie = movies[indexPath.row] // SO WHY DIDN'T WE CAST THIS??
+        let title = movie["title"] as! String
+        let overview = movie["overview"] as! String
+        cell.titleLabel.text = title
+        cell.overviewLabel.text = overview
+        
         return cell
     }
     
