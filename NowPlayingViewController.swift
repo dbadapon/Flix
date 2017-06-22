@@ -7,9 +7,9 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class NowPlayingViewController: UIViewController, UITableViewDataSource {
-    
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -83,6 +83,16 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
         cell.titleLabel.text = title
         cell.overviewLabel.text = overview
         
+        let posterPathString = movie["poster_path"] as! String
+        let baseURLString = "https://image.tmdb.org/t/p/w500" // be careful with your slashes...you don't want the wrong URL!! you'll be wondering why something becomes nil....
+        let posterURL = URL(string: baseURLString + posterPathString)!
+        // what's the difference between this and the as! thing??
+        // also posterURL returns an OPTIONAL url...wHY:???
+        // so you have to unwrap it with a !
+        
+        cell.posterImageView.af_setImage(withURL: posterURL) // feels like this method came outta nowhere
+        
+        
         return cell
     }
     
@@ -104,3 +114,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     */
 
 }
+
+//in swift 3 all parameters have names
+//if you want to omit the name/leave it "blank", you put _
+// LOOK THIS UP TOO
