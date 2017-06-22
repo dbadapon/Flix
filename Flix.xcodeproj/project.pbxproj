@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		A0CD9EA11EFB177400355DD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CD9EA01EFB177400355DD0 /* AppDelegate.swift */; };
-		A0CD9EA31EFB177400355DD0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CD9EA21EFB177400355DD0 /* ViewController.swift */; };
 		A0CD9EA61EFB177400355DD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0CD9EA41EFB177400355DD0 /* Main.storyboard */; };
 		A0CD9EA81EFB177400355DD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0CD9EA71EFB177400355DD0 /* Assets.xcassets */; };
 		A0CD9EAB1EFB177400355DD0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0CD9EA91EFB177400355DD0 /* LaunchScreen.storyboard */; };
 		A0CD9EB61EFB177400355DD0 /* FlixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CD9EB51EFB177400355DD0 /* FlixTests.swift */; };
 		A0CD9EC11EFB177400355DD0 /* FlixUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CD9EC01EFB177400355DD0 /* FlixUITests.swift */; };
+		A0CD9ECF1EFB29E700355DD0 /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CD9ECE1EFB29E700355DD0 /* NowPlayingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +36,6 @@
 /* Begin PBXFileReference section */
 		A0CD9E9D1EFB177400355DD0 /* Flix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0CD9EA01EFB177400355DD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A0CD9EA21EFB177400355DD0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A0CD9EA51EFB177400355DD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A0CD9EA71EFB177400355DD0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0CD9EAA1EFB177400355DD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +46,7 @@
 		A0CD9EBC1EFB177400355DD0 /* FlixUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlixUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0CD9EC01EFB177400355DD0 /* FlixUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlixUITests.swift; sourceTree = "<group>"; };
 		A0CD9EC21EFB177400355DD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0CD9ECE1EFB29E700355DD0 /* NowPlayingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NowPlayingViewController.swift; path = ../NowPlayingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +97,8 @@
 		A0CD9E9F1EFB177400355DD0 /* Flix */ = {
 			isa = PBXGroup;
 			children = (
+				A0CD9ECE1EFB29E700355DD0 /* NowPlayingViewController.swift */,
 				A0CD9EA01EFB177400355DD0 /* AppDelegate.swift */,
-				A0CD9EA21EFB177400355DD0 /* ViewController.swift */,
 				A0CD9EA41EFB177400355DD0 /* Main.storyboard */,
 				A0CD9EA71EFB177400355DD0 /* Assets.xcassets */,
 				A0CD9EA91EFB177400355DD0 /* LaunchScreen.storyboard */,
@@ -262,7 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0CD9EA31EFB177400355DD0 /* ViewController.swift in Sources */,
+				A0CD9ECF1EFB29E700355DD0 /* NowPlayingViewController.swift in Sources */,
 				A0CD9EA11EFB177400355DD0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
