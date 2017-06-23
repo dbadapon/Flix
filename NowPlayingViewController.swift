@@ -19,17 +19,14 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     
     var refreshControl: UIRefreshControl!
     
-    var movies: [[String: Any]] = [] // an array of dictionaries, like the local movies below
+    var movies: [[String: Any]] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(NowPlayingViewController.didPullToRefresh(_:)), for: .valueChanged) // WAIT GO BACK AND UNDERSTAND THIS AGAIN
-        // has an event...so who do we notify? we want it to notify our ViewController here, so self
-        // action: Selector is the method that it's going to call
-        
-        tableView.insertSubview(refreshControl, at: 0) // WHAT IS THIS AGAIN
+        refreshControl.addTarget(self, action: #selector(NowPlayingViewController.didPullToRefresh(_:)), for: .valueChanged)
+        tableView.insertSubview(refreshControl, at: 0)
         
         activityIndicator.startAnimating()
         
@@ -44,41 +41,25 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     
     
     func fetchMovies() {
-        let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=4ebc5c93641dbfe7e043da153b03fea4")! // contains an optional URL object...? so you can "force unwrap" with !
+        let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=4ebc5c93641dbfe7e043da153b03fea4")!
         
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         
-        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main) //when our network request returns, it will jump back on our main thread...
+        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         
         let task = session.dataTask(with: request) { (data, response, error) in
-            // This will run when the network request returns
-            // Network requests are asynchronous: they go out and do their thing on a different thread/queue than our main queue
-            // Our main queue is handling UI updates
-            // we want the user to still be able to interact with the app and not get stuck just because a slow network request is clogging up the pipe
+
             
-            if let error = error { // this error is optional (the second one?)
-                // peek under the hood to see if it's nil and act accordingly
-                // "if let..." syntax is gonna check whether (second) error is nil
-                // IF NILL, ignore everything in the curly braces
-                // IF NOT NILL, assign value of second error to first error
+            if let error = error {
                 
                 print(error.localizedDescription)
-            } else if let data = data { // if we get data back, it's gonna be JSON data
-                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any] //methods like JSONSerialization can go wrong in many ways, so we want to put in a try to catch errors if they pop up
-                // uh... apparently kind of like force unwrapping this...
-                // so if an error happens, our program will just crash (important -- this is actually what we want in this case)
-                // if you option-click dataDictionary, you'll notice that it's of type "Any", but we want a Swift dictionary so we're gonna CAST it with as!
-                // our key may be a String, but our value may be anything
+            } else if let data = data {
+                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                 
-                // print(dataDictionary)
-                
-                let movies = dataDictionary["results"] as! [[String: Any]]// check type of movies and see that it's Any...
-                // but we want this to be a dictionary too!
-                // you're going to be doing a lot of casting...so if you've gone into a key and you haven't cast, question yourself....
-                // here, movies is actually an array of dictionaries
+                let movies = dataDictionary["results"] as! [[String: Any]]
                 
                 self.movies = movies
-                self.tableView.reloadData() // MAKE SURE U KEEP UPDATING
+                self.tableView.reloadData()
                 self.refreshControl.endRefreshing()
                 
                 self.activityIndicator.stopAnimating()
@@ -86,12 +67,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
             }
             
         }
-        // data task to go and get the data
-        //
-        // "?" = optional...
-        // data, response, and error are all optional (could tell before we changed names to local variables)
-        
-//        activityIndicator.stopAnimating()
+
         task.resume() // actually starts the task
     }
     
@@ -102,21 +78,18 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
-        let movie = movies[indexPath.row] // SO WHY DIDN'T WE CAST THIS??
+        let movie = movies[indexPath.row]
         let title = movie["title"] as! String
         let overview = movie["overview"] as! String
         cell.titleLabel.text = title
         cell.overviewLabel.text = overview
         
         let posterPathString = movie["poster_path"] as! String
-        let baseURLString = "https://image.tmdb.org/t/p/w500" // be careful with your slashes...you don't want the wrong URL!! you'll be wondering why something becomes nil....
+        let baseURLString = "https://image.tmdb.org/t/p/w500"
         let posterURL = URL(string: baseURLString + posterPathString)!
-        // what's the difference between this and the as! thing??
-        // also posterURL returns an OPTIONAL url...wHY:???
-        // so you have to unwrap it with a !
+
         
-        cell.posterImageView.af_setImage(withURL: posterURL) // feels like this method came outta nowhere
-        
+        cell.posterImageView.af_setImage(withURL: posterURL)
         
         return cell
     }
@@ -145,7 +118,3 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     
 
 }
-
-//in swift 3 all parameters have names
-//if you want to omit the name/leave it "blank", you put _
-// LOOK THIS UP TOO
