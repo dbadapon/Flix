@@ -33,7 +33,7 @@ The following **additional** features are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1. I'd like to know how to include some sort of video player so that the movie trailers are available to the user.
+1. Making the movie trailers are available to the user.
 2. Figure out how to do media formatting (putting borders around pictures and other elements, changing shapes of things)
 
 ## Video Walkthrough
