@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5B7788ACDDD3B4A1DA891747 /* Pods_FlixTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B145F5334D2E2A9C769820B /* Pods_FlixTests.framework */; };
 		7E148393174E7F71EC8FBA0F /* Pods_Flix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC7D3DA2E4B405589B81997A /* Pods_Flix.framework */; };
+		A0075F8E1EFC9B2500AEEB59 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0075F8D1EFC9B2500AEEB59 /* DetailViewController.swift */; };
 		A0CD9EA11EFB177400355DD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CD9EA01EFB177400355DD0 /* AppDelegate.swift */; };
 		A0CD9EA61EFB177400355DD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0CD9EA41EFB177400355DD0 /* Main.storyboard */; };
 		A0CD9EA81EFB177400355DD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0CD9EA71EFB177400355DD0 /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 		255CEDA4761D842DDB7A197D /* Pods-FlixUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlixUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlixUITests/Pods-FlixUITests.release.xcconfig"; sourceTree = "<group>"; };
 		33077473B86FFA812176F2A8 /* Pods-FlixTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlixTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlixTests/Pods-FlixTests.release.xcconfig"; sourceTree = "<group>"; };
 		9B145F5334D2E2A9C769820B /* Pods_FlixTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlixTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0075F8D1EFC9B2500AEEB59 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		A0CD9E9D1EFB177400355DD0 /* Flix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0CD9EA01EFB177400355DD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0CD9EA51EFB177400355DD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -101,6 +103,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A0075F8B1EFC9ABB00AEEB59 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A0CD9ECE1EFB29E700355DD0 /* NowPlayingViewController.swift */,
+				A0075F8D1EFC9B2500AEEB59 /* DetailViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A0075F8C1EFC9AD500AEEB59 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A0CD9ED01EFB44F200355DD0 /* MovieCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		A0CD9E941EFB177400355DD0 = {
 			isa = PBXGroup;
 			children = (
@@ -126,13 +145,13 @@
 		A0CD9E9F1EFB177400355DD0 /* Flix */ = {
 			isa = PBXGroup;
 			children = (
-				A0CD9ECE1EFB29E700355DD0 /* NowPlayingViewController.swift */,
+				A0075F8C1EFC9AD500AEEB59 /* Views */,
+				A0075F8B1EFC9ABB00AEEB59 /* ViewControllers */,
 				A0CD9EA01EFB177400355DD0 /* AppDelegate.swift */,
 				A0CD9EA41EFB177400355DD0 /* Main.storyboard */,
 				A0CD9EA71EFB177400355DD0 /* Assets.xcassets */,
 				A0CD9EA91EFB177400355DD0 /* LaunchScreen.storyboard */,
 				A0CD9EAC1EFB177400355DD0 /* Info.plist */,
-				A0CD9ED01EFB44F200355DD0 /* MovieCell.swift */,
 			);
 			path = Flix;
 			sourceTree = "<group>";
@@ -455,6 +474,7 @@
 				A0CD9ECF1EFB29E700355DD0 /* NowPlayingViewController.swift in Sources */,
 				A0CD9EA11EFB177400355DD0 /* AppDelegate.swift in Sources */,
 				A0CD9ED11EFB44F200355DD0 /* MovieCell.swift in Sources */,
+				A0075F8E1EFC9B2500AEEB59 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -713,6 +733,7 @@
 				A0CD9EC71EFB177400355DD0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A0CD9EC81EFB177400355DD0 /* Build configuration list for PBXNativeTarget "FlixTests" */ = {
 			isa = XCConfigurationList;
@@ -721,6 +742,7 @@
 				A0CD9ECA1EFB177400355DD0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A0CD9ECB1EFB177400355DD0 /* Build configuration list for PBXNativeTarget "FlixUITests" */ = {
 			isa = XCConfigurationList;
@@ -729,6 +751,7 @@
 				A0CD9ECD1EFB177400355DD0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

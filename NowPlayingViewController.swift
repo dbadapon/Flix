@@ -9,18 +9,41 @@
 import UIKit
 import AlamofireImage
 
+
 class NowPlayingViewController: UIViewController, UITableViewDataSource {
     
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     @IBOutlet weak var tableView: UITableView!
+    
+    var refreshControl: UIRefreshControl!
     
     var movies: [[String: Any]] = [] // an array of dictionaries, like the local movies below
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.dataSource = self
-    
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(NowPlayingViewController.didPullToRefresh(_:)), for: .valueChanged) // WAIT GO BACK AND UNDERSTAND THIS AGAIN
+        // has an event...so who do we notify? we want it to notify our ViewController here, so self
+        // action: Selector is the method that it's going to call
         
+        tableView.insertSubview(refreshControl, at: 0) // WHAT IS THIS AGAIN
+        
+        activityIndicator.startAnimating()
+        
+        tableView.dataSource = self
+        fetchMovies()
+        
+    }
+    
+    func didPullToRefresh(_ refreshControl: UIRefreshControl){
+        fetchMovies()
+    }
+    
+    
+    func fetchMovies() {
         let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=4ebc5c93641dbfe7e043da153b03fea4")! // contains an optional URL object...? so you can "force unwrap" with !
         
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
@@ -56,18 +79,20 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
                 
                 self.movies = movies
                 self.tableView.reloadData() // MAKE SURE U KEEP UPDATING
+                self.refreshControl.endRefreshing()
                 
-
+                self.activityIndicator.stopAnimating()
+                
             }
-    
+            
         }
         // data task to go and get the data
         //
         // "?" = optional...
         // data, response, and error are all optional (could tell before we changed names to local variables)
         
+//        activityIndicator.stopAnimating()
         task.resume() // actually starts the task
-        
     }
     
     
@@ -103,15 +128,21 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let cell = sender as! UITableViewCell
+        if let indexPath = tableView.indexPath(for: cell) {
+            let movie = movies[indexPath.row]
+            let detailViewController = segue.destination as! DetailViewController
+            detailViewController.movie = movie
+        }
+    
+
     }
-    */
+    
 
 }
 
