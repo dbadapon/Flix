@@ -40,7 +40,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/JV10hOb.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/WqfuHCt.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
@@ -50,7 +50,8 @@ Describe any challenges encountered while building the app.
 
 I was interested in figuring out how to add the translucent shape/box around the activity indicator, but I thought it would be a more valuable use of my time to move onto looking at/polishing other features.
 
-(In general, I want to add in as many features as I can, but I find that I'm spending a lot of time trying to fully absorb and understand every line that I'm writing; and, while it somewhat hinders how much I can include in the finished product, I'm becoming more and more comfortable with the flow of development which is quite rewarding.)
+(In general, I want to add in as many features as I can, but I find myself spending a lot of time trying to fully absorb and understand every line that I'm writing (particularly in the process of completing the base requirements); and, while it somewhat hinders how much I can include in the finished product, I'm becoming more and more comfortable with the flow of development which is quite rewarding.)
+
 
 ## Credits
 
