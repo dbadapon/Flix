@@ -33,14 +33,14 @@ The following **additional** features are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1. Making the movie trailers are available to the user.
+1. Making the movie trailers available to the user.
 2. Figure out how to do media formatting (putting borders around pictures and other elements, changing shapes of things)
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/WqfuHCt.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://github.com/dbadapon/Flix/blob/master/Flix_video_walkthrough_2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
